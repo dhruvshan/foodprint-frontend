@@ -19,9 +19,10 @@ export default function BasicCard(props) {
           <Typography variant="subtitle1" color="text.secondary" component="div">
             Footprint: {props.info.footprint} kgCo2e/{props.info.units}
           </Typography>
-          <Typography>
-            <Link className='referenceLink' rel="noopener noreferrer"  href={props.info.reference} target="_blank">Reference</Link>
-          </Typography>
+            {props.info.reference == null || props.info.reference == "Self Calculated" ? 
+              <Typography>Self Calculated</Typography> :
+              <Link className='referenceLink' rel="noopener noreferrer"  href={props.info.reference} target="_blank">Reference</Link>
+            }
         </CardContent>
       </Box>
       <CardMedia
