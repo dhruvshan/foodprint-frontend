@@ -52,7 +52,7 @@ function App() {
         minHeight: "100vh",
       }}
     >
-      <h1>Carbon Foodprint</h1>
+      <h1>CarbonFoodprint</h1>
       <Stack spacing={2}>
         <Paper
         component="form"
