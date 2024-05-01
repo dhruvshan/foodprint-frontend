@@ -8,7 +8,6 @@ import {
 import './index.css'
 import About from './pages/about/About.jsx';
 
-
 const router = createBrowserRouter([
   {
     path: "/",
