@@ -7,12 +7,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import './App.css'
 import OutputCard from "./components/OutputCard/OutputCard"
 import { Box, Container, Link, Stack, Typography } from '@mui/material';
+import Navbar from './components/Navbar/Navbar';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="white">
       {"Copyright © "}
-      <Link color="inherit" href="">
+      <Link color="inherit" href="/" underline='none'>
         CarbonFoodprint
       </Link>{" "}
       {new Date().getFullYear()}
@@ -23,7 +24,7 @@ function Copyright() {
 
 function App() {
   const [data,setData] = useState(null)
-  const [notFound, setNotFound] = useState("");
+  const [message, setMessage] = useState("");
 
   const [inputText, setInputText] = useState("");
 
@@ -32,10 +33,18 @@ function App() {
   };
 
   function GetData(){
+      setMessage("Loading...")
       setData(null)
       fetch(import.meta.env.VITE_API_KEY+inputText)
       .then(response => response.json())
-      .then(json => json.length != 0 ? setData(json):setNotFound("Not found in our database"))
+      .then(json => {
+          if(json.length != 0){
+            setMessage("")
+            setData(json)
+          }else{
+            setMessage("Not items found in our database!")
+          }
+        })
       .catch(error => console.error(error));
   }
 
@@ -45,14 +54,15 @@ function App() {
 
 
   return (
+    <Box>
+    <Navbar />
     <Box
       sx={{
         display: "flex",
         flexDirection:"column",
-        minHeight: "100vh",
       }}
     >
-      <h1>CarbonFoodprint</h1>
+      <h1>Carbon<span style={{color:"#00b300"}}>Foodprint</span></h1>
       <Stack spacing={2}>
         <Paper
         component="form"
@@ -70,14 +80,15 @@ function App() {
             <SearchIcon/>
           </IconButton>
         </Paper>
+        <br />
+        {message}
+        {data? <Typography variant='subtitle1' sx={{color:"white"}}>{data.length} item(s) found!</Typography>:<></>}
         {data? data.map(function(mindata, i){
           return <OutputCard info={mindata} key={i}/>
-        }): 
-        <div>
-          <Typography>{notFound}</Typography>
-        </div>}
+        }):<></>}
       </Stack>
-      <Box
+    </Box>
+    <Box
           component="footer"
           sx={{
             py: 3,
@@ -86,7 +97,7 @@ function App() {
           }}
       >
         <Container maxWidth="sm">
-          <Typography variant='body1'>Built by DS</Typography>
+          <Typography variant='body1'>Built by <Link sx={{color:"orange"}} href="https://dhruvshanbhag.vercel.app/" underline='none' target="_blank">DS</Link></Typography>
           <Copyright />
         </Container>
       </Box>

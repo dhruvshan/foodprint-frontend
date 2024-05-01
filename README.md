@@ -18,11 +18,11 @@ The platform supports users entering the name of the food, e.g Fried Chicken or 
 - Carbon Footprint of the food
 - Reference to the footprint (if available)
 
-![Single Food Item returned](/screenshots/singlefooditem.png?raw=true "Single Food Item returned")
+![Single Food Item returned](/screenshots/singlefooditem_v1.1.png?raw=true "Single Food Item returned")
 
 If users enter generic terms, the platform can also return an array of food items, like this screenshot below:
 
-![Multiple Food Item returned](/screenshots/multiplefooditem.png?raw=true "Multiple Food Item returned")
+![Multiple Food Item returned](/screenshots/multiplefooditem_v1.1.png?raw=true "Multiple Food Item returned")
 
 If food item/name is not found in the database, it will simply return "No item found in database". 
 

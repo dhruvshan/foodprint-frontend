@@ -3,7 +3,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
-import './OutputCard.css'
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from '@mui/material';
 
@@ -12,16 +11,16 @@ export default function BasicCard(props) {
   return (
     <Card sx={{ display: 'flex', justifyContent: "space-between" }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardContent sx={{ flex: '1 0 auto', textAlign:"left" }}>
-          <Typography component="div" variant="h5">
+        <CardContent sx={{ flex: '1 0 auto', textAlign:"left", display:"flex", flexDirection:"column", justifyContent:"space-between" }}>
+          <Typography component="div" variant="h6">
             {props.info.name}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-            Footprint: {props.info.footprint} kgCo2e/{props.info.units}
+            <span style={{color:"black"}}>{props.info.footprint} kgCo2e</span>/{props.info.units}
           </Typography>
             {props.info.reference == null || props.info.reference == "Self Calculated" ? 
               <Typography>Self Calculated</Typography> :
-              <Link className='referenceLink' rel="noopener noreferrer"  href={props.info.reference} target="_blank">Reference</Link>
+              <Link className='referenceLink' rel="noopener noreferrer" underline='none'  href={props.info.reference} target="_blank">Reference</Link>
             }
         </CardContent>
       </Box>
