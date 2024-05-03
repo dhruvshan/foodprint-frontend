@@ -1,11 +1,9 @@
-import { Container, Typography, Link } from "@mui/material";
-import Navbar from "../../components/Navbar/Navbar";
+import { Container, Typography, Link, Box } from "@mui/material";
 
 export default function About(){
     return(
-        <Container> 
-            <Navbar/>
-            <Container maxWidth="sm" style={{textAlign:"left", display:"flex", flexDirection: "column"}}>
+        <Box>
+            <Container maxWidth="sm" style={{ display:"flex", flexDirection: "column"}}>
                 <Typography variant="h3"> The Story Behind</Typography>
                 <Typography variant="h2">Carbon<span style={{color:"#00b300"}}>Foodprint</span></Typography>
                 <br />
@@ -44,6 +42,6 @@ export default function About(){
                 <br />
                 <Typography variant="p" color="text.subtitle1">This project was built by me, Dhruv Shanbhag! I am a full-stack/software developer. You can check out my projects and work experiences <Link href="https://dhruvshanbhag.vercel.app/" underline="none" sx={{color:"orange"}} target="_blank">here!</Link></Typography>
             </Container>
-        </Container>
+        </Box>
     )
 }

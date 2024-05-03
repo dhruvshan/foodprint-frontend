@@ -5,7 +5,6 @@ import { Box, Divider, List, ListItem, ListItemButton, ListItemText, AppBar, Too
 import MenuIcon from '@mui/icons-material/Menu';
 
 const drawerWidth = 240;
-// const navItems = ['Home', 'About'];
 
 export default function Navbar(props){
     const { window } = props;
@@ -19,7 +18,6 @@ export default function Navbar(props){
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Divider />
             <List>
-                {/* {navItems.map((item) => ( */}
                 <ListItem disablePadding>
                     <ListItemButton href="/" sx={{ textAlign: 'center' }}>
                         <ListItemText primary="Home" />
@@ -30,15 +28,14 @@ export default function Navbar(props){
                         <ListItemText primary="About" />
                     </ListItemButton>
                 </ListItem>
-                {/* ))} */}
             </List>
         </Box>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
     return(
-        <Box sx={{ display: 'flex', alignItems:"center" }}>
-            <AppBar component="nav" color="transparent">
+        <Box sx={{ display: 'flex'}}>
+            <AppBar component="nav" color="transparent" position="sticky">
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -50,42 +47,36 @@ export default function Navbar(props){
                         <MenuIcon />
                     </IconButton>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {/* {navItems.map((item) => ( */}
                         <Button href="/" sx={{ color: '#fff' }}>
                             Home
                         </Button>
                         <Button href="/about" sx={{ color: '#fff' }}>
                             About
                         </Button>
-                        {/* ))} */}
                     </Box>
                 </Toolbar>
             </AppBar>
             <nav>
                 <Drawer
-                container={container}
-                variant="temporary"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
-                ModalProps={{
-                    keepMounted: true, // Better open performance on mobile.
-                }}
-                sx={{
-                    display: { xs: 'block', sm: 'none' },
-                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                }}
+                    container={container}
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true, // Better open performance on mobile.
+                    }}
+                    sx={{
+                        display: { xs: 'block', sm: 'none' },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    }}
                 >
-                {drawer}
+                    {drawer}
                 </Drawer>
             </nav>
-            </Box>
+        </Box>
 )
 }
 
 Navbar.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
     window: PropTypes.func,
-  };
+};

@@ -26,6 +26,11 @@ If users enter generic terms, the platform can also return an array of food item
 
 If food item/name is not found in the database, it will simply return "No item found in database". 
 
+## Improvements in V1.1
+- More food items added to database
+- Improved Card UI/UX
+- Number of items per query shown
+
 
 ### Note
 - Please do note that there are millions of food items around the world. The items in the database will be updated regurarly but we cant guarantee that all the food items will be available.

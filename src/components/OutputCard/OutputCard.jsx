@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { Link } from '@mui/material';
 
 
-export default function BasicCard(props) {
+function BasicCard(props) {
   return (
     <Card sx={{ display: 'flex', justifyContent: "space-between" }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -38,10 +38,13 @@ export default function BasicCard(props) {
 BasicCard.propTypes = {
     info: PropTypes.objectOf(
       PropTypes.shape({
+        _id: PropTypes.string,
         name: PropTypes.string,
         query: PropTypes.string,
         footprint: PropTypes.string,
         imageUrl: PropTypes.string,
       })
     ),
-  };
+};
+
+export default BasicCard;
