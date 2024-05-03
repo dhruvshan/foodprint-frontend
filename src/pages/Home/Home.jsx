@@ -42,8 +42,8 @@ function Home() {
   return (
     <Box component="main">
       <Container maxWidth="md" style={{display:"flex", flexDirection:"column" }}>
-        <Typography variant='h3'>Carbon<span style={{color:"#00b300"}}>Foodprint</span></Typography>
         <Stack spacing={2}>
+          <Typography variant='h3'>Carbon<span style={{color:"#00b300"}}>Foodprint</span></Typography>
           <Paper
           component="form"
           sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}
