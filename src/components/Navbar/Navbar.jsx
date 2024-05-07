@@ -28,6 +28,11 @@ export default function Navbar(props){
                         <ListItemText primary="About" />
                     </ListItemButton>
                 </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton href="/ranking" sx={{ textAlign: 'center' }}>
+                        <ListItemText primary="Ranking" />
+                    </ListItemButton>
+                </ListItem>
             </List>
         </Box>
     );
@@ -52,6 +57,9 @@ export default function Navbar(props){
                         </Button>
                         <Button href="/about" sx={{ color: '#fff' }}>
                             About
+                        </Button>
+                        <Button href="/ranking" sx={{ color: '#fff' }}>
+                            Ranking
                         </Button>
                     </Box>
                 </Toolbar>

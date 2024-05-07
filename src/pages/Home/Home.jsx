@@ -21,17 +21,28 @@ function Home() {
   function GetData(){
       setMessage("Loading...")
       setData(null)
-      fetch(import.meta.env.VITE_API_KEY+inputText)
-      .then(response => response.json())
-      .then(json => {
-          if(json.length != 0){
-            setMessage("")
-            setData(json)
-          }else{
-            setMessage("Not items found in our database!")
+      if(inputText.length != 0){
+        const url = import.meta.env.VITE_API_URL+inputText
+        fetch(url, {
+          method: "GET",
+          headers:{
+            "x-api-key": import.meta.env.VITE_API_KEY
           }
         })
-      .catch(error => console.error(error));
+        .then(response => response.json())
+        .then(json => {
+            if(json.length != 0){
+              setMessage("")
+              setData(json)
+            }else{
+              setMessage("Not items found in our database!")
+            }
+          })
+        .catch(error => setMessage(error));
+      }
+      else{
+        setMessage("Cannot pass empty inputs. Please enter an item!")
+      }
   }
 
   const handleEnter = (e) =>{
