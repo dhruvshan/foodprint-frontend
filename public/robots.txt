@@ -1,0 +1,1 @@
+Sitemap: https://carbonfoodprint.vercel.app/sitemap.xml
